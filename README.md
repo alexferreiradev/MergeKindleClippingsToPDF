@@ -12,4 +12,4 @@
 
 ##Contribuições
 
-O projeto ainda está no início. Caso tenha alguém interessado em ajudar, estamos aberto a conversa para colaborações. Para mais informações sobre o desenvolvimento, acesse [Link](https://github.com/alexferreiradev/MergeKindleClippingsToPDF/Documentation.md).
+O projeto ainda está no início. Caso tenha alguém interessado em ajudar, estamos aberto a conversa para colaborações. Para mais informações sobre o desenvolvimento, acesse [Link](https://github.com/alexferreiradev/MergeKindleClippingsToPDF/blob/master/Documentation.md).
