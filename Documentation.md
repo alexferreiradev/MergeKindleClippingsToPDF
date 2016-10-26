@@ -4,16 +4,16 @@
 ### ManageClips
 
 Métodos:
-  open
-  List<?> createAnotations
-    searchText
-    copyText
-    createFile
-    createDics
-  save
+  - open
+  - List<?> createAnotations
+    - searchText
+    - copyText
+    - createFile
+    - createDics
+  - save
   
 ### ManagePDF
-  open
-    PDF putAnotation(List<>, PDF)
-      searchText
-      save
+  - open
+  - PDF putAnotation(List<>, PDF)
+   - searchText
+  - save
