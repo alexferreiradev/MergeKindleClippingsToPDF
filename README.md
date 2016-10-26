@@ -1,4 +1,4 @@
-# MergeKindleClippingsToPDF
+# Merge Kindle Clippings To PDF
 
 ##Funções
 
