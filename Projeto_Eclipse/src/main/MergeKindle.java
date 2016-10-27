@@ -5,6 +5,7 @@ package main;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.logging.Level;
@@ -47,6 +48,8 @@ public class MergeKindle {
 			e.printStackTrace();
 		} catch (NoSuchElementException e) {
 			L.log(Level.SEVERE, "Algo está errado com a criação de anotações");
+		} catch (IOException e) {
+			L.log(Level.SEVERE, "Algo está errado com a criação do PDF com anotações");
 		}
 	}
 
