@@ -20,11 +20,12 @@ import model.Anotation;
  */
 public class ManageKindleClip implements ManageClip<Anotation> {
 
-	private static final String CLIP_REGISTER_DELIMETER = "=======";
-	private static final String HIGHLIGHT_TYPE_TAG = "Seu destaque - ";
-	private static final String HIGHLIGHT_DELIMITER_FROM_POSITION = " - ";
-	private static final String POSITION_AUTHOR_DELIMETER = "(";
-	private static final String NEWLINE_DELIMETER = "\n";
+	public static final String CLIP_REGISTER_DELIMETER = "==========\r\n";
+	public static final String HIGHLIGHT_TYPE_TAG = "- Seu destaque";
+	public static final String HIGHLIGHT_POSITION_DELIMITER = " ou ";
+	public static final String PDF_AUTHOR_DELIMETER = " ";
+	public static final String POSITION_TIME_DELIMETER = " \\| ";
+	public static final String NEWLINE_DELIMETER = "\r\n";
 
 	/* (non-Javadoc)
 	 * @see main.manageclip.ManageClip#createAnotationsFromPDF(java.lang.String, java.io.File)
@@ -32,16 +33,20 @@ public class ManageKindleClip implements ManageClip<Anotation> {
 	@Override
 	public List<Anotation> extractInfoFromClipFile(String pdfNameFile, File clipFile) throws FileNotFoundException {
 		List<Anotation> anotations = new ArrayList<>();
-		Scanner scanner = new Scanner(clipFile);
+		Scanner scanner = new Scanner(clipFile, "utf-8");
 		scanner.useDelimiter(CLIP_REGISTER_DELIMETER);
 		while (scanner.hasNext()) {
-			String string = (String) scanner.next();
-			StringTokenizer tokenizer = new StringTokenizer(string, NEWLINE_DELIMETER);
-			if (tokenizer.hasMoreTokens() && tokenizer.nextToken().equals(pdfNameFile)){
-				if (tokenizer.hasMoreTokens() && tokenizer.nextToken(HIGHLIGHT_DELIMITER_FROM_POSITION).startsWith(HIGHLIGHT_TYPE_TAG)){
-					String position = tokenizer.nextToken(POSITION_AUTHOR_DELIMETER);
-					String author = tokenizer.nextToken();
-					String text = tokenizer.nextToken();
+			String string = scanner.next();
+			StringTokenizer tokenizer = new StringTokenizer(string, NEWLINE_DELIMETER, false);
+			String pdfName = tokenizer.nextToken(PDF_AUTHOR_DELIMETER);
+			String author = tokenizer.nextToken(NEWLINE_DELIMETER);
+			if (tokenizer.hasMoreTokens() && pdfName.equals(pdfNameFile)){
+				String[] split = tokenizer.nextToken(NEWLINE_DELIMETER).split(HIGHLIGHT_POSITION_DELIMITER);
+				String highlightTag = split[0];
+				if (tokenizer.hasMoreTokens() && highlightTag.startsWith(HIGHLIGHT_TYPE_TAG)){
+					String split2 = split[1];
+					String position = split2.split(POSITION_TIME_DELIMETER)[0]; 
+					String text = tokenizer.nextToken(NEWLINE_DELIMETER);
 					Anotation anotation = new Anotation(pdfNameFile, position, author, text);
 					anotations.add(anotation);
 				}
