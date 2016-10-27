@@ -1,6 +1,7 @@
 package main.managepdf;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.List;
 
 /**
@@ -16,7 +17,8 @@ public interface ManageBasePDF<T>{
 	 * @param infos - lista de anotações a serem adicionadas a um PDF
 	 * @param pdfFile - O pdf sem as anotações
 	 * @return pdf com anotações
+	 * @throws FileNotFoundException - Pdf nao foi encontrado
 	 */
-	public File createPDFWithInfo(List<T> objects, File pdfFile);
+	public File createPDFWithInfo(List<T> objects, File pdfFile) throws FileNotFoundException;
 
 }
