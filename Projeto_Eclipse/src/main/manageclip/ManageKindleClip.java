@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import java.util.StringTokenizer;
+import java.util.regex.Pattern;
 
 import model.Anotation;
 
@@ -32,6 +33,8 @@ public class ManageKindleClip implements ManageClip<Anotation> {
 	 */
 	@Override
 	public List<Anotation> extractInfoFromClipFile(String pdfNameFile, File clipFile) throws FileNotFoundException {
+//		if (pdfNameFile.endsWith(".pdf"))
+//			pdfNameFile = Pattern.compile("(.*)\\.pdf").matcher(pdfNameFile).group();
 		List<Anotation> anotations = new ArrayList<>();
 		Scanner scanner = new Scanner(clipFile, "utf-8");
 		scanner.useDelimiter(CLIP_REGISTER_DELIMETER);
@@ -39,13 +42,12 @@ public class ManageKindleClip implements ManageClip<Anotation> {
 			String string = scanner.next();
 			StringTokenizer tokenizer = new StringTokenizer(string, NEWLINE_DELIMETER, false);
 			String pdfName = tokenizer.nextToken(PDF_AUTHOR_DELIMETER);
-			String author = tokenizer.nextToken(NEWLINE_DELIMETER);
+			String author = tokenizer.nextToken(" "+NEWLINE_DELIMETER);
 			if (tokenizer.hasMoreTokens() && pdfName.equals(pdfNameFile)){
 				String[] split = tokenizer.nextToken(NEWLINE_DELIMETER).split(HIGHLIGHT_POSITION_DELIMITER);
 				String highlightTag = split[0];
 				if (tokenizer.hasMoreTokens() && highlightTag.startsWith(HIGHLIGHT_TYPE_TAG)){
-					String split2 = split[1];
-					String position = split2.split(POSITION_TIME_DELIMETER)[0]; 
+					String position = split[1].split(POSITION_TIME_DELIMETER)[0]; 
 					String text = tokenizer.nextToken(NEWLINE_DELIMETER);
 					Anotation anotation = new Anotation(pdfNameFile, position, author, text);
 					anotations.add(anotation);
