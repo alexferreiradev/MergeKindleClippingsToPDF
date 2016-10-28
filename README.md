@@ -3,9 +3,9 @@
 # Merge Kindle Clippings To PDF
 A página do projeto pode ser visualizada através deste [link](https://alexferreiradev.github.io/MergeKindleClippingsToPDF/).
 
-## Funções
+## Funcionalidade
 
-* Criar arquivo PDF que está no seu Kindle com marcações no seu PC
+* Criar arquivo PDF que está no seu Kindle, com marcações, para o seu PC
 
 ## Modo de utilizaçao:
 
