@@ -9,7 +9,7 @@
 1. Fazer download de arquivo MyClipping.txt para o seu PC e colocar em uma diretório $dir.
 2. Copiar o PDF que deseja fazer o merge na diretório $dir.
 2. Fazer download de JAR do [PDFCLown](https://sourceforge.net/projects/clown/) e colocar na pasta lib que deve estar dentro do diretório $dir.
-2. Fazer download do JAR do projeto que está dentro da pasta `realeases` no repositório.
+2. Fazer download do [JAR](releases/tag/v0.0.1-alpha) do projeto.
 2. Rodar comando java de dentro do diretório $dir:
 
     `java -jar "<MergeJar>.jar;lib/*" main.MergeKindle <$PDF>`
@@ -18,4 +18,4 @@ Sendo que deve substituir `<MergeJar>` pelo nome da realease baixada e `$PDF` pe
 
 ##Contribuições
 
-O projeto ainda está no início. Caso tenha alguém interessado em ajudar, estamos aberto a conversa para colaborações. Para mais informações sobre o desenvolvimento, acesse [Link](https://github.com/alexferreiradev/MergeKindleClippingsToPDF/blob/master/Documentation.md).
+O projeto ainda está no início. Caso tenha alguém interessado em ajudar, estamos aberto a conversa para colaborações. Para mais informações sobre o desenvolvimento, acesse [Link](/master/Documentation.md).
