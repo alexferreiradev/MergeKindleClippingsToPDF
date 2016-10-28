@@ -53,7 +53,7 @@ public class ManageAnotationToPDF implements ManageBasePDF<Anotation> {
 				try {
 					extracted = textExtractor.extract(page);
 				} catch (Exception e) {
-					Logger.getGlobal().log(Level.WARNING, "Page "+pageNumber+" não foi extraída: PDFClown limmited to UnicadeCharacter", e);
+					Logger.getGlobal().log(Level.WARNING, "Page "+pageNumber+" não foi analizada para adicionar marcações: PDFClown limmited to UnicadeCharacter");
 					continue;
 				}
 				final Matcher matcher = pattern.matcher(TextExtractor.toString(extracted));
