@@ -3,11 +3,11 @@
 # Merge Kindle Clippings To PDF
 A página do projeto pode ser visualizada através deste [link](https://alexferreiradev.github.io/MergeKindleClippingsToPDF/).
 
-##Funções
+## Funções
 
 * Criar arquivo PDF que está no seu Kindle com marcações no seu PC
 
-##Modo de utilizaçao:
+## Modo de utilizaçao:
 
 1. Fazer download de arquivo MyClipping.txt para o seu PC e colocar em uma diretório $dir.
 2. Copiar o PDF que deseja fazer o merge na diretório $dir.
@@ -19,6 +19,10 @@ A página do projeto pode ser visualizada através deste [link](https://alexferr
 
 Sendo que deve substituir `<MergeJar>` pelo nome da realease baixada e `$PDF` pelo nome do PDF, sem a extenção ".pdf", do qual deseja realizar o merge de anotações.
 
-##Contribuições
+## Contribuições
 
 O projeto ainda está no início. Caso tenha alguém interessado em ajudar, estamos aberto a conversa para colaborações. Para mais informações sobre o desenvolvimento, acesse [Link](/Documentation.md).
+
+## Licença
+
+O projeto ainda não está sob uma licença, mas está livre para qualquer coisa.
