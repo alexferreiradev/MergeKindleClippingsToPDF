@@ -1,6 +1,7 @@
 [![GitHub release](https://img.shields.io/badge/releases-v.0.0.1-yellow.svg)](https://github.com/alexferreiradev/MergeKindleClippingsToPDF/releases/tag/v0.0.1-alpha)
 
 # Merge Kindle Clippings To PDF
+A página do projeto pode ser visualizada através deste [link](https://alexferreiradev.github.io/MergeKindleClippingsToPDF/).
 
 ##Funções
 
