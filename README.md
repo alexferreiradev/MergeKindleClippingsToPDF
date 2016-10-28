@@ -27,12 +27,12 @@ Sendo que deve substituir `<MergeJar>` pelo nome da realease baixada e `$PDF` pe
 
 ## Limitações
 
-1. Marcações duplicadadas
-- O Merge ainda não está trabalhando com a informação de posição, somente faz a busca pelo texto marcado. Portanto, um texto marcado em uma página, será procurado em todas as páginas do PDF, ou seja, terá mais de uma marcação, caso seja encontrado o mesmo texto em páginas diferentes.
-1. Erro com alguns caracteres UNICODE
-- O Merge utiliza a biblioteca PDFClown, a qual está com um bug aberto a respeito deste erro. Enquanto não resolverem o problema ou não ser feita a troca para outra Lib, ele terá este erro.
-1. Trabalha um PDF por vez
-- Será feito marcação em um PDF por execução. O Merge não realiza a busca para todos PDFs listados no arquivo .txt.
+1. **Marcações duplicadadas**
+ - O Merge ainda não está trabalhando com a informação de posição, somente faz a busca pelo texto marcado. Portanto, um texto marcado em uma página, será procurado em todas as páginas do PDF, ou seja, terá mais de uma marcação, caso seja encontrado o mesmo texto em páginas diferentes.
+1. **Erro com alguns caracteres UNICODE**
+ - O Merge utiliza a biblioteca PDFClown, a qual está com um bug aberto a respeito deste erro. Enquanto não resolverem o problema ou não ser feita a troca para outra Lib, ele terá este erro.
+1. **Trabalha com um PDF por vez**
+ - Será feito marcação em um PDF por execução. O Merge não realiza a busca para todos PDFs listados no arquivo .txt.
 
 ## Contribuições
 
@@ -40,4 +40,4 @@ O projeto ainda está no início. Caso tenha alguém interessado em ajudar, esta
 
 ## Licença
 
-O projeto ainda não está sob uma licença, mas está livre para qualquer coisa.
+O projeto está sob a licença do MIT, veja neste [Link](/License.txt).
