@@ -21,9 +21,9 @@ O Merge requisita um ambiente com o JAVA instalado, o arquivo .txt criado pelo K
     1. Testar o Java com: `# java -version`, deve mostrar a versão instalada do seu JAVA
     1. Rodar comando:
     
-    `# java -cp "<MergeJar>.jar;lib/*" main.MergeKindle <$PDF>`
+    `# java -cp "<MergeJar>.jar;lib/*" main.MergeKindle <PDF>`
 
-Sendo que deve substituir `<MergeJar>` pelo nome da realease baixada e `$PDF` pelo nome do PDF, sem a extenção ".pdf", do qual deseja realizar o merge de anotações.
+Sendo que deve substituir `<MergeJar>` pelo nome da realease baixada e `<PDF>` pelo nome do PDF, sem a extenção ".pdf", do qual deseja realizar o merge de anotações. Além disso, retire `<` e `>` também.
 
 ## Limitações
 
