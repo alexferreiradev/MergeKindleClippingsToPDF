@@ -8,6 +8,8 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -34,18 +36,26 @@ public class ManageAnotationToPDF implements ManageBasePDF<Anotation> {
 	 */
 	@Override
 	public File createPDFWithInfo(List<Anotation> anotations, File pdfFile) throws IOException {
-		File newPdfFile = new File(pdfFile.getPath().concat(MERGED_PDF_PREFIX_NAME).concat(pdfFile.getName()));
+		File newPdfFile = new File(MERGED_PDF_PREFIX_NAME.concat(pdfFile.getName()));
 		@SuppressWarnings("resource")
 		Document document = new org.pdfclown.files.File(pdfFile.getAbsolutePath()).getDocument();
 		Pages pages = document.getPages();
 		for (Anotation anotation : anotations) {
 			// TODO Busca pagina pelo a.position
 			TextExtractor textExtractor = new TextExtractor(false, true);
+			long pageNumber = 1;
 			for (final Page page : pages){
+				pageNumber ++;
 //				String position = anotation.getPosition();
 //				Pattern patternPos = Pattern.compile("(\\d*\\-)(\\d*)");
 				Pattern pattern = Pattern.compile("(".concat(anotation.getText())+"){1,1}");
-				Map<Rectangle2D, List<ITextString>> extracted = textExtractor.extract(page);
+				Map<Rectangle2D, List<ITextString>> extracted = null;
+				try {
+					extracted = textExtractor.extract(page);
+				} catch (Exception e) {
+					Logger.getGlobal().log(Level.WARNING, "Page "+pageNumber+" não foi extraída: PDFClown limmited to UnicadeCharacter", e);
+					continue;
+				}
 				final Matcher matcher = pattern.matcher(TextExtractor.toString(extracted));
 				textExtractor.filter(extracted, new IIntervalFilterImplementation(matcher, page));
 			}
