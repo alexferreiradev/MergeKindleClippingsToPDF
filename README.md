@@ -1,3 +1,5 @@
+[![GitHub release](https://img.shields.io/badge/releases-v.0.0.1-yellow.svg)](/release/tag/v.0.0.1-alpha)
+
 # Merge Kindle Clippings To PDF
 
 ##Funções
