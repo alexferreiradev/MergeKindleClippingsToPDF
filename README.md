@@ -8,7 +8,7 @@
 
 1. Fazer download de arquivo MyClipping.txt para o seu PC e colocar em uma diretório $dir.
 2. Copiar o PDF que deseja fazer o merge na diretório $dir.
-2. Fazer download de JAR do [PDFCLown]() e colocar na pasta lib que deve estar dentro do diretório $dir.
+2. Fazer download de JAR do [PDFCLown](https://sourceforge.net/projects/clown/) e colocar na pasta lib que deve estar dentro do diretório $dir.
 2. Fazer download do JAR do projeto que está dentro da pasta `realeases` no repositório.
 2. Rodar comando java de dentro do diretório $dir:
 
