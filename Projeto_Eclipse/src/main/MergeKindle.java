@@ -25,7 +25,7 @@ import model.Anotation;
 public class MergeKindle {
 	
 	public static final String DEFUALT_MY_CLIPPINGS_TXT_NAME = "My Clippings.txt";
-	private static final Logger L = Logger.getLogger("Merge Kindle Project", MergeKindle.class.getSimpleName());
+	private static final Logger L = Logger.getLogger("Merge Kindle Project", null);
 
 	/**
 	 * @param args - argumentos válidos são:
