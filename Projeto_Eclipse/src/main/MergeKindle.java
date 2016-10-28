@@ -37,7 +37,7 @@ public class MergeKindle {
 		Handler handler = new StreamHandler(System.out, new SimpleFormatter());
 		L.addHandler(handler);
 		L.setUseParentHandlers(false);
-		L.setLevel(Level.INFO);
+		L.setLevel(Level.ALL);
 		L.log(Level.INFO, "Merge está abrindo arquivos e extraindo anotações.");
 		//TODO add extração de argumentos
 		
