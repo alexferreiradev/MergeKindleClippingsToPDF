@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<jardesc>
+    <jar path="C:/Users/Alex/Repo_MergeKindleClipToPDF/releases/MergeKindleClips1.0.jar"/>
+    <options buildIfNeeded="true" compress="true" descriptionLocation="/MergeKindleClipsToPDF/description1.0.jardesc" exportErrors="true" exportWarnings="true" includeDirectoryEntries="true" overwrite="true" saveDescription="true" storeRefactorings="false" useSourceFolders="false"/>
+    <storedRefactorings deprecationInfo="true" structuralOnly="false"/>
+    <selectedProjects/>
+    <manifest generateManifest="false" mainClassHandleIdentifier="=MergeKindleClipsToPDF/src&lt;main{MergeKindle.java[MergeKindle" manifestLocation="/MergeKindleClipsToPDF/Manifest1.0" manifestVersion="1.0" reuseManifest="true" saveManifest="true" usesManifest="true">
+        <sealing sealJar="false">
+            <packagesToSeal/>
+            <packagesToUnSeal/>
+        </sealing>
+    </manifest>
+    <selectedElements exportClassFiles="true" exportJavaFiles="false" exportOutputFolder="false">
+        <javaElement handleIdentifier="=MergeKindleClipsToPDF/src"/>
+    </selectedElements>
+</jardesc>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project default="create_run_jar" name="Create Runnable Jar for Project MergeKindleClipsToPDF">
+    <!--this file was created by Eclipse Runnable JAR Export Wizard-->
+    <!--ANT 1.7 is required                                        -->
+    <!--define folder properties-->
+    <property name="dir.buildfile" value="."/>
+    <property name="dir.workspace" value="C:/Users/Alex/Projetos de IDEs/Workspaces/workspace - JAVA SE"/>
+    <property name="dir.jarfile" value="C:/Users/Alex/Repo_MergeKindleClipToPDF/releases"/>
+    <target name="create_run_jar">
+        <jar destfile="${dir.jarfile}/MergeClips1.0.jar" filesetmanifest="mergewithoutmain">
+            <manifest>
+                <attribute name="Main-Class" value="main.MergeKindle"/>
+                <attribute name="Class-Path" value="."/>
+            </manifest>
+            <fileset dir="${dir.buildfile}/bin"/>
+            <zipfileset excludes="META-INF/*.SF" src="${dir.buildfile}/libs/PDFclown/pdfclown.jar"/>
+        </jar>
+    </target>
+</project>
