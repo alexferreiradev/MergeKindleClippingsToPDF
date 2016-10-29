@@ -12,6 +12,8 @@ import java.util.logging.ConsoleHandler;
 import java.util.logging.Handler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import main.manageclip.ManageKindleClip;
 import main.managepdf.ManageAnotationToPDF;
@@ -45,6 +47,9 @@ public class MergeKindle {
 		ManageKindleClip manageKindleClip = new ManageKindleClip();
 		ManageAnotationToPDF maToPDF = new ManageAnotationToPDF();
 		String pdfNameFile = args[0];
+		Matcher matcher = Pattern.compile("(.*).pdf").matcher(pdfNameFile);
+		if (matcher.find())
+			pdfNameFile = matcher.group(1);
 		String pdfNameFileExt = pdfNameFile.concat(".pdf");
 		
 		try {
