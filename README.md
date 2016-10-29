@@ -15,7 +15,7 @@ O Merge requisita um ambiente com o JAVA instalado e o arquivo .txt criado pelo 
 1. Confira a instalação do Java com os passos descritos através deste [link](https://www.java.com/pt_BR/download/help/ie_online_install.xml#test) ou digite no terminal: `java -version`.
 1. Fazer cópia do arquivo MyClipping.txt, o qual está dentro do seu Kindle, para o seu PC e colocar em um diretório $dir.
 1. Copiar o PDF que deseja adicionar as marcações no diretório $dir.
-1. Fazer download do [JAR](https://github.com/alexferreiradev/MergeKindleClippingsToPDF/releases/tag/v0.0.1-alpha) do projeto.
+1. Fazer download do [ZIP](https://github.com/alexferreiradev/MergeKindleClippingsToPDF/releases/latest) do projeto e extrair o JAR.
 1. Abrir um terminal (Linux e MAC) ou CMD (Windows) e entrar no diretório $dir:
     1. `# cd "$dir"`, sendo que deve substituir $dir pelo caminho para o seu diretório $dir.
     1. Testar o Java com: `# java -version`, deve mostrar a versão instalada do seu JAVA
