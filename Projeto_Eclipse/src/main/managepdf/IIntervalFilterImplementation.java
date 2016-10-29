@@ -3,6 +3,8 @@ package main.managepdf;
 import java.awt.geom.Rectangle2D;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.regex.Matcher;
 
 import org.pdfclown.documents.Page;
@@ -22,10 +24,13 @@ import org.pdfclown.util.math.geom.Quad;
 public class IIntervalFilterImplementation implements TextExtractor.IIntervalFilter {
 	private final Matcher matcher;
 	private final Page page;
-
-	IIntervalFilterImplementation(Matcher matcher, Page page) {
+	private long pageNumber;
+	
+	IIntervalFilterImplementation(Matcher matcher, Page page, long pageNumber) {
 		this.matcher = matcher;
 		this.page = page;
+		this.pageNumber = pageNumber;
+		Logger.getGlobal().log(Level.INFO, "Processando página: "+pageNumber);
 	}
 
 	@Override
@@ -41,6 +46,7 @@ public class IIntervalFilterImplementation implements TextExtractor.IIntervalFil
 
 	@Override
 	public void process(@SuppressWarnings("rawtypes") Interval interval, ITextString match) {
+		Logger.getGlobal().log(Level.INFO, "Processando marcação: "+match.getText());
 		/**
 		 * Código copiado da API PDFClown
 		 */
@@ -70,6 +76,7 @@ public class IIntervalFilterImplementation implements TextExtractor.IIntervalFil
 		
 		// Highlight the text pattern match!
 		new TextMarkup(page, null, MarkupTypeEnum.Highlight, highlightQuads);
+		Logger.getGlobal().log(Level.INFO, "Marcação: "+match.getText()+" feita na página: "+pageNumber);
 	}
 
 	@Override

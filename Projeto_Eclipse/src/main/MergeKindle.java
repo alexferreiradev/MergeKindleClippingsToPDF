@@ -8,15 +8,15 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.logging.ConsoleHandler;
 import java.util.logging.Handler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import java.util.logging.SimpleFormatter;
-import java.util.logging.StreamHandler;
 
 import main.manageclip.ManageKindleClip;
 import main.managepdf.ManageAnotationToPDF;
 import model.Anotation;
+import util.CustomLogFormatter;
 
 /**
  * Realiza merge de anotações do Kindle em arquivos PDF extraídos do mesmo.
@@ -27,14 +27,15 @@ import model.Anotation;
 public class MergeKindle {
 	
 	public static final String DEFUALT_MY_CLIPPINGS_TXT_NAME = "My Clippings.txt";
-	private static final Logger L = Logger.getLogger("Merge Kindle Project", null);
+	private static final Logger L = Logger.getGlobal();
 
 	/**
 	 * @param args - argumentos válidos são:
 	 * 	<nome do pdf sem extensao>
 	 */
 	public static void main(String[] args) {
-		Handler handler = new StreamHandler(System.out, new SimpleFormatter());
+		Handler handler = new ConsoleHandler();
+		handler.setFormatter(new CustomLogFormatter());
 		L.addHandler(handler);
 		L.setUseParentHandlers(false);
 		L.setLevel(Level.INFO);
@@ -51,17 +52,23 @@ public class MergeKindle {
 			File pdfFile = new File("./"+pdfNameFileExt);
 			
 			List<Anotation> anotations = manageKindleClip.extractInfoFromClipFile(pdfNameFile, clipFile);
+			if (anotations.size() == 0){
+				Logger.getGlobal().log(Level.WARNING, "Não foi encontrado nenhuma anotação para o PDF: "+pdfNameFile);
+				return;
+			}else
+				Logger.getGlobal().log(Level.INFO, "Foi encontrado "+anotations.size()+" anotações.");
+			
 			File createPDFWithInfo = maToPDF.createPDFWithInfo(anotations, pdfFile);
 			if (createPDFWithInfo != null)
 				L.log(Level.INFO, "Foi realizado o merge do PDF com sucesso.");
 			else
 				L.log(Level.INFO, "Algum erro ocorreu, o PDF não foi gerado.");
 		} catch (FileNotFoundException e) {
-			L.log(Level.SEVERE, "Erro ao tentar abrir arquivos: "+e.getMessage(), e);
+			L.log(Level.SEVERE, "Erro ao tentar abrir arquivos: ", e);
 		} catch (NoSuchElementException e) {
-			L.log(Level.SEVERE, "Erro ao tentar extrair anotações: "+e.getMessage());
+			L.log(Level.SEVERE, "Erro ao tentar extrair anotações: ", e);
 		} catch (IOException e) {
-			L.log(Level.SEVERE, "Erro ao criar PDF com anotações: "+e.getMessage());
+			L.log(Level.SEVERE, "Erro ao criar PDF com anotações: ", e);
 		}
 	}
 

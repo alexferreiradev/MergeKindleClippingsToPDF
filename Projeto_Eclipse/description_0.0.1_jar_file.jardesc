@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="WINDOWS-1252" standalone="no"?>
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
 <jardesc>
     <jar path="C:/Users/Alex/Repo_MergeKindleClipToPDF/releases/MergeKindleClips0.0.1.jar"/>
     <options buildIfNeeded="true" compress="true" descriptionLocation="/MergeKindleClipsToPDF/description_0.0.1_jar_file.jardesc" exportErrors="true" exportWarnings="true" includeDirectoryEntries="true" overwrite="true" saveDescription="true" storeRefactorings="false" useSourceFolders="false"/>

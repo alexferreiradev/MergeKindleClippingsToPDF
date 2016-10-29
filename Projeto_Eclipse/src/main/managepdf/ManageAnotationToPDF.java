@@ -45,19 +45,19 @@ public class ManageAnotationToPDF implements ManageBasePDF<Anotation> {
 			TextExtractor textExtractor = new TextExtractor(false, true);
 			long pageNumber = 1;
 			for (final Page page : pages){
-				pageNumber ++;
 //				String position = anotation.getPosition();
 //				Pattern patternPos = Pattern.compile("(\\d*\\-)(\\d*)");
-				Pattern pattern = Pattern.compile("(".concat(anotation.getText())+"){1,1}");
+				Pattern pattern = Pattern.compile("(".concat(anotation.getText().replaceAll(" ",""))+"){1,1}");
 				Map<Rectangle2D, List<ITextString>> extracted = null;
 				try {
 					extracted = textExtractor.extract(page);
 				} catch (Exception e) {
-					Logger.getGlobal().log(Level.WARNING, "Page "+pageNumber+" não foi extraída: PDFClown limmited to UnicadeCharacter", e);
+					Logger.getGlobal().log(Level.WARNING, "Page "+pageNumber+" não foi analizada para adicionar marcações: PDFClown limmited to UnicadeCharacter");
 					continue;
 				}
 				final Matcher matcher = pattern.matcher(TextExtractor.toString(extracted));
-				textExtractor.filter(extracted, new IIntervalFilterImplementation(matcher, page));
+				textExtractor.filter(extracted, new IIntervalFilterImplementation(matcher, page, pageNumber));
+				pageNumber ++;
 			}
 		}
 		document.getFile().save(newPdfFile.getName(),SerializationModeEnum.Standard);
