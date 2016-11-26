@@ -15,8 +15,8 @@ import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import main.manageclip.ManageKindleClip;
-import main.managepdf.ManageAnotationToPDF;
+import manageclip.ManageKindleClip;
+import managepdf.ManageAnotationToPDF;
 import model.Anotation;
 import util.CustomLogFormatter;
 

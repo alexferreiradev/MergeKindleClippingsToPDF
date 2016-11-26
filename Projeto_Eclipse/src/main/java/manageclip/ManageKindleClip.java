@@ -1,7 +1,7 @@
 /**
  * 
  */
-package main.manageclip;
+package manageclip;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -27,7 +27,7 @@ public class ManageKindleClip implements ManageClip<Anotation> {
 	public static final String HIGHLIGHT_TYPE_TAG = "Seu destaque";
 	public static final String PDF_NAME_REGEX = "(.*)\\s\\(";
 	public static final String AUTHOR_REGEX = "(.*)\\)";
-	public static final String POSITION_REGEX = "(\\d+\\-\\d+)";
+	public static final String POSITION_REGEX = "\\- Seu destaque.*\\s(\\d*)[\\-\\s\\|].*\\|";
 
 	/* (non-Javadoc)
 	 * @see main.manageclip.ManageClip#createAnotationsFromPDF(java.lang.String, java.io.File)
@@ -53,7 +53,7 @@ public class ManageKindleClip implements ManageClip<Anotation> {
 			}else{
 				pdfName = line; //Não tem nome do author 
 			}
-			if (token.hasNext() && pdfName.equals(pdfNameFile)){
+			if (token.hasNext() && pdfName.trim().equals(pdfNameFile)){
 				String secondLine = token.nextLine();
 				if (token.hasNext() && secondLine.contains(HIGHLIGHT_TYPE_TAG)){
 					matcher = Pattern.compile(POSITION_REGEX).matcher(secondLine);

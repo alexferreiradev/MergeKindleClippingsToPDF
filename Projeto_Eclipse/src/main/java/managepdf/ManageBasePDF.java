@@ -1,4 +1,4 @@
-package main.managepdf;
+package managepdf;
 
 import java.io.File;
 import java.io.FileNotFoundException;

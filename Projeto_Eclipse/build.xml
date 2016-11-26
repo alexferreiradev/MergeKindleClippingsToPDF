@@ -1,19 +1,37 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<project default="create_run_jar" name="Create Runnable Jar for Project MergeKindleClipsToPDF">
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<project default="compile" name="Create Runnable Jar for Project MergeKindleClipsToPDF">
     <!--this file was created by Eclipse Runnable JAR Export Wizard-->
     <!--ANT 1.7 is required                                        -->
     <!--define folder properties-->
     <property name="dir.buildfile" value="."/>
     <property name="dir.workspace" value="C:/Users/Alex/Projetos de IDEs/Workspaces/workspace - JAVA SE"/>
     <property name="dir.jarfile" value="C:/Users/Alex/Repo_MergeKindleClipToPDF/releases"/>
+	<property name="classes.dir" value="./classes"/>
+	<property name="src.dir" value="./src/main/java/"/>
+	<target name="compile">
+	    <mkdir dir="${classes.dir}"/>
+		<path id="lib.path.ref">
+		    <fileset dir="./libs" includes="**/*.jar"/>
+	  	</path>
+		<javac srcdir="${src.dir}" destdir="${classes.dir}">
+		    <compilerarg value="-Xbootclasspath/p:${toString:lib.path.ref}"/>
+		</javac>
+	</target>
+	
     <target name="create_run_jar">
-        <jar destfile="${dir.jarfile}/MergeClips1.0.jar" filesetmanifest="mergewithoutmain">
+        <jar destfile="${dir.jarfile}/MergeClips1.0.1.jar" filesetmanifest="mergewithoutmain" >
             <manifest>
                 <attribute name="Main-Class" value="main.MergeKindle"/>
-                <attribute name="Class-Path" value="."/>
+                <attribute name="Class-Path" value="${classes.dir}"/>
             </manifest>
-            <fileset dir="${dir.buildfile}/bin"/>
+            <fileset dir="${classes.dir}" />
+            <zipfileset excludes="META-INF/*.SF" src="C:/Program Files (x86)/Eclipse/Mars - JAVA SE - 64bits/plugins/org.junit_4.12.0.v201504281640/junit.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="C:/Program Files (x86)/Eclipse/Mars - JAVA SE - 64bits/plugins/org.hamcrest.core_1.3.0.v201303031735.jar"/>
             <zipfileset excludes="META-INF/*.SF" src="${dir.buildfile}/libs/PDFclown/pdfclown.jar"/>
         </jar>
     </target>
+	
+	<target name="clean">
+		<delete dir="${classes.dir}"/>
+	</target>
 </project>

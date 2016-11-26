@@ -4,7 +4,7 @@
 definição de transação 1
 ==========
 Ludmila (arf92@live.com)
-- Seu destaque ou posição 124-124 | Adicionado: quinta-feira, 3 de dezembro de 2015 09:34:27
+- Seu destaque ou posição 124-123 | Adicionado: quinta-feira, 3 de dezembro de 2015 09:34:27
 
 transaction 1
 ==========
@@ -14,12 +14,12 @@ Ludmila (arf92@live.com)
 diferença de transação e sessão 
 ==========
 Ludmila (arf92@live.com)
-- Seu destaque ou posição 124-125 | Adicionado: quinta-feira, 3 de dezembro de 2015 09:34:27
+- Seu destaque ou posição 125-125 | Adicionado: quinta-feira, 3 de dezembro de 2015 09:34:27
 
 transaction 2
 ==========
 Ludmila (arf92@live.com)
-- Seu destaque ou posição 124-126 | Adicionado: quinta-feira, 3 de dezembro de 2015 09:34:27
+- Seu destaque ou posição 126-127 | Adicionado: quinta-feira, 3 de dezembro de 2015 09:34:27
 
 transaction 3
 ==========

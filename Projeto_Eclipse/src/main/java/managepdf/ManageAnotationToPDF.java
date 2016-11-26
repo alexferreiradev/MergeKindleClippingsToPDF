@@ -1,11 +1,12 @@
 /**
  * 
  */
-package main.managepdf;
+package managepdf;
 
 import java.awt.geom.Rectangle2D;
 import java.io.File;
 import java.io.IOException;
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
@@ -17,6 +18,7 @@ import org.pdfclown.documents.Document;
 import org.pdfclown.documents.Page;
 import org.pdfclown.documents.Pages;
 import org.pdfclown.documents.contents.ITextString;
+import org.pdfclown.documents.interaction.navigation.page.PageLabel;
 import org.pdfclown.files.SerializationModeEnum;
 import org.pdfclown.tools.TextExtractor;
 
@@ -40,14 +42,25 @@ public class ManageAnotationToPDF implements ManageBasePDF<Anotation> {
 		@SuppressWarnings("resource")
 		Document document = new org.pdfclown.files.File(pdfFile.getAbsolutePath()).getDocument();
 		Pages pages = document.getPages();
+		Collection<PageLabel> values = document.getPageLabels().values();
+		int pageNBase = 1;
+		if (values.size() > 0)
+			pageNBase = values.iterator().next().getNumberBase(); 
+	
 		for (Anotation anotation : anotations) {
-			// TODO Busca pagina pelo a.position
+			String position = anotation.getPosition();			
 			TextExtractor textExtractor = new TextExtractor(false, true);
 			long pageNumber = 1;
 			for (final Page page : pages){
-//				String position = anotation.getPosition();
-//				Pattern patternPos = Pattern.compile("(\\d*\\-)(\\d*)");
-				Pattern pattern = Pattern.compile("(".concat(anotation.getText().replaceAll(" ",""))+"){1,1}");
+				if (!position.isEmpty()){
+					int pageLabelNumber = page.getIndex() + pageNBase;
+					if (pageLabelNumber < Integer.valueOf(position))
+						continue;
+					else if (pageLabelNumber > Integer.valueOf(position))
+						break;
+				}
+
+				Pattern pattern = Pattern.compile("(".concat(anotation.getText().replaceAll(" ",""))+")+");
 				Map<Rectangle2D, List<ITextString>> extracted = null;
 				try {
 					extracted = textExtractor.extract(page);
