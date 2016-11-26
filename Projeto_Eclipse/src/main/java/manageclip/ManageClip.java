@@ -1,4 +1,4 @@
-package main.manageclip;
+package manageclip;
 
 import java.io.File;
 import java.io.FileNotFoundException;

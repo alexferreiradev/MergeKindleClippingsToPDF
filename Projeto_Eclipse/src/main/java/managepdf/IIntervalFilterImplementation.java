@@ -1,4 +1,4 @@
-package main.managepdf;
+package managepdf;
 
 import java.awt.geom.Rectangle2D;
 import java.util.ArrayList;
