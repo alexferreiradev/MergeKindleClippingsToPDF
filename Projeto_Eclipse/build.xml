@@ -19,7 +19,7 @@
 	</target>
 	
     <target name="create_run_jar">
-        <jar destfile="${dir.jarfile}/MergeClips1.0.1.jar" filesetmanifest="mergewithoutmain" >
+        <jar destfile="${dir.jarfile}/MergeClips1.0.2.jar" filesetmanifest="mergewithoutmain" >
             <manifest>
                 <attribute name="Main-Class" value="main.MergeKindle"/>
                 <attribute name="Class-Path" value="${classes.dir}"/>

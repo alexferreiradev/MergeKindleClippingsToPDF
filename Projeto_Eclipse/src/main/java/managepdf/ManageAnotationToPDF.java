@@ -50,8 +50,9 @@ public class ManageAnotationToPDF implements ManageBasePDF<Anotation> {
 		for (Anotation anotation : anotations) {
 			String position = anotation.getPosition();			
 			TextExtractor textExtractor = new TextExtractor(false, true);
-			long pageNumber = 1;
+			long pageNumber = 0;
 			for (final Page page : pages){
+				pageNumber ++;
 				if (!position.isEmpty()){
 					int pageLabelNumber = page.getIndex() + pageNBase;
 					if (pageLabelNumber < Integer.valueOf(position))
@@ -65,12 +66,11 @@ public class ManageAnotationToPDF implements ManageBasePDF<Anotation> {
 				try {
 					extracted = textExtractor.extract(page);
 				} catch (Exception e) {
-					Logger.getGlobal().log(Level.WARNING, "Page "+pageNumber+" não foi analizada para adicionar marcações: PDFClown limmited to UnicadeCharacter");
+					Logger.getGlobal().log(Level.WARNING, "Page "+pageNumber+" não foi analizada para adicionar marcações: PDFClown is limmited to Unicode Character");
 					continue;
 				}
 				final Matcher matcher = pattern.matcher(TextExtractor.toString(extracted));
 				textExtractor.filter(extracted, new IIntervalFilterImplementation(matcher, page, pageNumber));
-				pageNumber ++;
 			}
 		}
 		document.getFile().save(newPdfFile.getName(),SerializationModeEnum.Standard);
