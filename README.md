@@ -1,4 +1,4 @@
-[![GitHub release](https://img.shields.io/badge/release-1.0-green.svg)](https://github.com/alexferreiradev/MergeKindleClippingsToPDF/releases)
+[![GitHub release](https://img.shields.io/badge/release-1-green.svg)](https://github.com/alexferreiradev/MergeKindleClippingsToPDF/releases)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/alexferreiradev/MergeKindleClippingsToPDF/master/License.txt)
 
 # Merge Kindle Clippings To PDF
@@ -28,7 +28,7 @@ Sendo que deve substituir `<MergeJar>` pelo nome da realease baixada e `<PDF>` p
 ## Limitações
 
 1. **Marcações duplicadadas**
- - O Merge ainda não está trabalhando com a informação de posição, somente faz a busca pelo texto marcado. Portanto, um texto marcado em uma página, será procurado em todas as páginas do PDF, ou seja, terá mais de uma marcação, caso seja encontrado o mesmo texto em páginas diferentes.
+ - O Merge faz a busca por todos os textos a serem marcados em uma página, caso encontre mais de uma vez na mesma página, ele marca todas as vezes encontrado.
 1. **Erro com alguns caracteres UNICODE**
  - O Merge utiliza a biblioteca PDFClown, a qual está com um bug aberto a respeito deste erro. Enquanto não resolverem o problema ou não ser feita a troca para outra Lib, ele terá este erro.
 1. **Trabalha com um PDF por vez**
